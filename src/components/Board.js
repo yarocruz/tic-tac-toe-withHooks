@@ -3,11 +3,11 @@ import Square from "./Square";
 
 export default function Board(props) {
     const [squares, setSquares] = useState(Array(9).fill(null));
-    const [next, setNext] = useState(true);
+    const [xIsNext, setNext] = useState(true);
 
     const handleClick = (i) => {
         const newSquares = squares.slice();
-        newSquares[i] = next ? 'X' : 'O';
+        newSquares[i] = xIsNext ? 'X' : 'O';
         setSquares(newSquares);
         setNext(!next)
     }
@@ -16,7 +16,7 @@ export default function Board(props) {
         return <Square value={squares[i]} onClick={() => handleClick(i)} />
     }
 
-    const status = `Next Player: ${next ? 'X' : 'O'}`;
+    const status = `Next Player: ${xIsNext ? 'X' : 'O'}`;
 
     return (
         <div>
