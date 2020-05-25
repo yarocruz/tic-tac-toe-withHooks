@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Board from "./Board";
 import calculateWinner from "../utils/calculateWinner";
 
@@ -16,18 +16,47 @@ export default function Game() {
         setNext((step % 2) === 0);
     }
 
-    const handleClick = (i) => {
+    const setMove = (i) => {
         const _history = history.slice(0, stepNumber + 1);
         const current = _history[_history.length - 1];
         const newSquares = current.squares.slice();
         if (calculateWinner(newSquares) || newSquares[i]) {
             return;
         }
-        newSquares[i] = xIsNext ? 'X' : 'O';
+
+        newSquares[i] = 'X';
         setSquares(_history.concat([{ squares: newSquares }]));
         setStepNumber(_history.length)
         setNext(!xIsNext);
+
+        setTimeout(() => {
+            computerMove(newSquares, _history);
+        }, 500);
     }
+
+    const computerMove = (s, h) => {
+        // select a random index in a array that is not null
+        h = history.slice(0, stepNumber + 1);
+        console.log(h)
+        const squareIndexes = Array.from(Array(s.length).keys());
+        const availableSquares = squareIndexes.filter(index => s[index] === null);
+        const selectedIndex = availableSquares[Math.floor(Math.random() * availableSquares.length)]
+        if (calculateWinner(s) || s[selectedIndex]) {
+            return;
+        }
+        s[selectedIndex] = 'O';
+        setSquares(h.concat([{ squares: s }]));
+        setStepNumber(h.length)
+        setNext(!xIsNext);
+        console.log(availableSquares);
+        console.log(selectedIndex);
+    }
+
+    const handleClick = (i) => {
+        setMove(i)
+
+    }
+
 
     const _history = history;
     const current = _history[stepNumber];
@@ -43,7 +72,8 @@ export default function Game() {
     let status;
     if (winner) {
         status = `Winner: ${winner}`;
-    } else {
+    }
+    else {
         status = `Next Player: ${xIsNext ? 'X' : 'O'}`;
     }
 
