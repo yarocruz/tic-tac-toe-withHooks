@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/yarocruz.github.io/tic-tac-toe-withHooks/static/css/main.f76f4e4c.chunk.css",
-    "main.js": "/yarocruz.github.io/tic-tac-toe-withHooks/static/js/main.dea549e5.chunk.js",
-    "main.js.map": "/yarocruz.github.io/tic-tac-toe-withHooks/static/js/main.dea549e5.chunk.js.map",
-    "runtime-main.js": "/yarocruz.github.io/tic-tac-toe-withHooks/static/js/runtime-main.edc32804.js",
-    "runtime-main.js.map": "/yarocruz.github.io/tic-tac-toe-withHooks/static/js/runtime-main.edc32804.js.map",
-    "static/js/2.f4823e68.chunk.js": "/yarocruz.github.io/tic-tac-toe-withHooks/static/js/2.f4823e68.chunk.js",
-    "static/js/2.f4823e68.chunk.js.map": "/yarocruz.github.io/tic-tac-toe-withHooks/static/js/2.f4823e68.chunk.js.map",
-    "index.html": "/yarocruz.github.io/tic-tac-toe-withHooks/index.html",
-    "precache-manifest.b55ba3d13919df9efee20122b34f65b4.js": "/yarocruz.github.io/tic-tac-toe-withHooks/precache-manifest.b55ba3d13919df9efee20122b34f65b4.js",
-    "service-worker.js": "/yarocruz.github.io/tic-tac-toe-withHooks/service-worker.js",
-    "static/css/main.f76f4e4c.chunk.css.map": "/yarocruz.github.io/tic-tac-toe-withHooks/static/css/main.f76f4e4c.chunk.css.map",
-    "static/js/2.f4823e68.chunk.js.LICENSE.txt": "/yarocruz.github.io/tic-tac-toe-withHooks/static/js/2.f4823e68.chunk.js.LICENSE.txt"
+    "main.css": "/tic-tac-toe-withHooks/static/css/main.f76f4e4c.chunk.css",
+    "main.js": "/tic-tac-toe-withHooks/static/js/main.4174a234.chunk.js",
+    "main.js.map": "/tic-tac-toe-withHooks/static/js/main.4174a234.chunk.js.map",
+    "runtime-main.js": "/tic-tac-toe-withHooks/static/js/runtime-main.24a5371f.js",
+    "runtime-main.js.map": "/tic-tac-toe-withHooks/static/js/runtime-main.24a5371f.js.map",
+    "static/js/2.f4823e68.chunk.js": "/tic-tac-toe-withHooks/static/js/2.f4823e68.chunk.js",
+    "static/js/2.f4823e68.chunk.js.map": "/tic-tac-toe-withHooks/static/js/2.f4823e68.chunk.js.map",
+    "index.html": "/tic-tac-toe-withHooks/index.html",
+    "precache-manifest.f0c88b6aba1ba7a572488abf5a7a3b13.js": "/tic-tac-toe-withHooks/precache-manifest.f0c88b6aba1ba7a572488abf5a7a3b13.js",
+    "service-worker.js": "/tic-tac-toe-withHooks/service-worker.js",
+    "static/css/main.f76f4e4c.chunk.css.map": "/tic-tac-toe-withHooks/static/css/main.f76f4e4c.chunk.css.map",
+    "static/js/2.f4823e68.chunk.js.LICENSE.txt": "/tic-tac-toe-withHooks/static/js/2.f4823e68.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.edc32804.js",
+    "static/js/runtime-main.24a5371f.js",
     "static/js/2.f4823e68.chunk.js",
     "static/css/main.f76f4e4c.chunk.css",
-    "static/js/main.dea549e5.chunk.js"
+    "static/js/main.4174a234.chunk.js"
   ]
 }
