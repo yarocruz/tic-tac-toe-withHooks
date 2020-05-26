@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Board from "./Board";
 import calculateWinner from "../utils/calculateWinner";
 
@@ -13,7 +13,6 @@ export default function Game() {
 
     const jumpTo = (step) => {
         setStepNumber(step);
-        setNext((step % 2) === 0);
     }
 
     const setMove = (i) => {
@@ -29,33 +28,41 @@ export default function Game() {
         setStepNumber(_history.length)
         setNext(!xIsNext);
 
-        setTimeout(() => {
-            computerMove(newSquares, _history);
-        }, 500);
     }
 
-    const computerMove = (s, h) => {
+    const computerMove = () => {
+
+        const _history = history.slice(0, stepNumber + 1);
+        const current = _history[_history.length - 1];
+        const newSquares = current.squares.slice();
+
         // select a random index in a array that is not null
-        h = history.slice(0, stepNumber + 1);
-        console.log(h)
-        const squareIndexes = Array.from(Array(s.length).keys());
-        const availableSquares = squareIndexes.filter(index => s[index] === null);
+        const squareIndexes = Array.from(Array(newSquares.length).keys());
+       // This part guarantees that every time the array of keys shrinks, we only get the indexes left that are not null
+       // so when the Math.random does is thing, it will only select from those available squares.
+        const availableSquares = squareIndexes.filter(index => newSquares[index] === null);
         const selectedIndex = availableSquares[Math.floor(Math.random() * availableSquares.length)]
-        if (calculateWinner(s) || s[selectedIndex]) {
+        if (calculateWinner(newSquares) || newSquares[selectedIndex]) {
             return;
         }
-        s[selectedIndex] = 'O';
-        setSquares(h.concat([{ squares: s }]));
-        setStepNumber(h.length)
-        setNext(!xIsNext);
-        console.log(availableSquares);
-        console.log(selectedIndex);
+        newSquares[selectedIndex] = 'O';
+        setSquares(_history.concat([{ squares: newSquares }]));
+        setStepNumber(_history.length)
+        setNext(true);
     }
 
     const handleClick = (i) => {
-        setMove(i)
-
+        setMove(i);
     }
+
+    useEffect(() => {
+        if (!xIsNext) { // once xIsNext is no longer true, computerMove() gets called as a side effect in half a second.
+            setTimeout(() => {
+                computerMove()
+                setNext(true);
+            }, 500)
+        }
+    }, [xIsNext])
 
 
     const _history = history;
